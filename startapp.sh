@@ -12,6 +12,7 @@ download() {
     elif [ "${IDRAC_VERSION}" -eq 6 ]; then
       URI="software"
     fi
+    echo -e "Downloading: https://${IDRAC_HOST}/${URI}/${jar}"
     wget --load-cookies=cookies -O "${path}/${jar}" https://${IDRAC_HOST}/${URI}/${jar} --no-check-certificate
     if [ ! $? -eq 0 ]; then
       echo -e "${RED}Failed to download ${jar}, please check your settings${NC}"
