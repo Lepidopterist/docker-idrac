@@ -82,4 +82,6 @@ elif ( curl -k -y 1 --head https://${IDRAC_HOST}/images/Ttl_2_iDRAC6_Ent_ML.png 
   download avctVMLinux64.jar lib
 
   exec java -cp avctKVM.jar -Djava.library.path="lib" com.avocent.idrac.kvm.Main ip=${IDRAC_HOST} kmport=5900 vport=5900 user=${IDRAC_USER} passwd=${IDRAC_PASSWORD} apcp=1 version=2 vmprivilege=true "helpurl=https://${IDRAC_HOST}:443/help/contents.html"
+else
+  echo "${RED}Unidentified iDRAC version detected!${NC}"
 fi
