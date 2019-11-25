@@ -51,7 +51,7 @@ mkdir lib
 
 touch cookies
 
-if ( curl -k -y 1 --head https://${IDRAC_HOST}/page/login.html | grep '200 OK' > /dev/null ); then
+if ( curl -k -y 1 --head https://${IDRAC_HOST}/cgi-bin/webcgi/login | grep '200 OK' > /dev/null ); then
   IDRAC_VERSION=5
   echo "iDRAC version 5 detected"
   COOKIE=$(curl -k --data "WEBVAR_USERNAME=${IDRAC_USER}&WEBVAR_PASSWORD=${IDRAC_PASSWORD}" https://${IDRAC_HOST}/rpc/WEBSES/create.asp 2> /dev/null | grep SESSION_COOKIE | cut -d\' -f 4)
